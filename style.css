@@ -1,0 +1,637 @@
+
+/* Général */
+* {
+    /* Réinitialisation des marges, paddings, et calcul de la boîte de modèle */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* Police par défaut pour tout le document */
+    font-family: 'Noto Sans', sans-serif;
+
+    /* Suppression des soulignements et des puces des listes */
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Variables personnalisées */
+:root {
+    /* Couleurs */
+    --text-color: #ECF8F6;
+    --bg-color: #585858;
+    --main-color: #fEEAA1;
+    --second-color: #7E7E7E;
+    --other-color: #fff;
+
+    /* Tailles de police */
+    --big-font: 5.5rem;
+    --p-font: 1rem;
+}
+
+/* Styles globaux pour le body */
+body {
+    /* Couleur d'arrière-plan et couleur de texte par défaut */
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Styles pour l'en-tête */
+header {
+    /* Positionnement fixe en haut de la page */
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+
+    /* Affichage en ligne et centrage des éléments */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 27px 9%;
+
+    /* Transition pour les animations fluides */
+    transition: all ease .55s;
+}
+
+/* Styles pour le logo dans l'en-tête */
+.logo {
+    /* Affichage en ligne et centrage vertical des éléments */
+    display: flex;
+    align-items: center;
+
+    /* Couleur et taille du texte du logo */
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+/* Styles pour l'icône dans le logo */
+.logo i {
+    /* Alignement vertical de l'icône */
+    vertical-align: middle;
+
+    /* Couleur de l'icône */
+    color: var(--main-color);
+    font-size: 35px;
+    margin-right: 5px;
+}
+
+/* Styles pour la liste de navigation */
+.navlist {
+    /* Affichage en ligne pour les éléments de la liste */
+    display: flex;
+}
+
+/* Styles pour les liens de la liste de navigation */
+.navlist a {
+    /* Taille et couleur du texte des liens */
+    font-size: var(--p-font);
+    color: var(--text-color);
+    font-weight: 600;
+
+    /* Marge entre les liens */
+    margin: 0 35px;
+
+    /* Transition pour les animations fluides */
+    transition: all ease .55s;
+}
+
+/* Styles au survol des liens de la liste de navigation */
+.navlist a:hover {
+    /* Changement de couleur au survol */
+    color: var(--main-color);
+}
+
+/* Styles pour le lien actif de la liste de navigation */
+.navlist a.active {
+    /* Couleur du lien actif */
+    color: var(--main-color);
+}
+
+/* Styles pour la partie principale de l'en-tête */
+.h-main {
+    /* Affichage en ligne et centrage vertical des éléments */
+    display: flex;
+    align-items: center;
+}
+
+/* Styles pour le bouton "Acheter" dans l'en-tête */
+.h-btn {
+    /* Affichage en ligne-bloc */
+    display: inline-block;
+
+    /* Remplissage du bouton */
+    padding: 10px 25px;
+
+    /* Couleur du texte et couleur d'arrière-plan */
+    color: var(--bg-color);
+    background: var(--main-color);
+
+    /* Taille et style de la police */
+    font-size: 14px;
+    font-weight: 500;
+
+    /* Coins arrondis et bordure */
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+
+    /* Marge à droite du bouton */
+    margin-right: 20px;
+
+    /* Transition pour les animations fluides */
+    transition: all ease .55s;
+}
+
+/* Styles au survol du bouton "Acheter" */
+.h-btn:hover {
+    /* Couleur d'arrière-plan et bordure transparentes */
+    background: transparent;
+    border: 2px solid var(--text-color);
+
+    /* Couleur du texte */
+    color: var(--text-color);
+}
+
+/* Styles pour l'icône de menu */
+#menu-icon {
+    /* Taille de l'icône */
+    font-size: 40px;
+
+    /* Couleur de l'icône */
+    color: var(--text-color);
+
+    /* Positionnement en haut à droite */
+    z-index: 10001;
+    cursor: pointer;
+    margin: 15px;
+
+    /* Masquage par défaut de l'icône de menu */
+    display: none;
+}
+
+/* Styles pour l'icône de mode sombre */
+#darkmode {
+    /* Taille de l'icône */
+    font-size: 30px;
+    cursor: pointer;
+
+    /* Couleur de l'icône */
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+/* Styles pour les sections */
+section {
+    /* Remplissage horizontal */
+    padding: 0 12%;
+}
+
+/* Styles pour la section "hero" */
+.hero {
+    /* Positionnement relatif */
+    position: relative;
+
+    /* Largeur de 100% et hauteur de 100vh */
+    width: 100%;
+    height: 100vh;
+
+    /* Affichage en grille */
+    display: grid;
+
+    /* Deux colonnes de largeur égale */
+    grid-template-columns: repeat(2, 1fr);
+
+    /* Alignement vertical des éléments */
+    align-items: center;
+
+    /* Espacement entre les éléments de la grille */
+    gap: 1rem;
+}
+
+/* Styles pour l'image de la section "hero" */
+.hero-img {
+    /* Hauteur et largeur fixes pour l'image */
+    height: 800px;
+    width: 800px;
+}
+
+/* Styles pour l'image de la section "hero" */
+.hero-img img {
+    /* Taille de l'image de 100% de la largeur et de la hauteur */
+    width: 100%;
+    height: 100%;
+
+    /* Ajustement de l'image pour tenir dans le conteneur */
+    object-fit: contain;
+}
+
+/* Styles pour les boîtes de contenu supplémentaires de la section "hero" */
+.hero-in {
+    /* Affichage en grille */
+    display: grid;
+
+    /* Répétition automatique des colonnes avec une largeur minimale de 100px */
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+
+    /* Alignement vertical des éléments */
+    align-items: center;
+
+    /* Alignement du texte au centre */
+    text-align: center;
+
+    /* Espacement entre les éléments de la grille */
+    gap: 30px;
+}
+
+/* Styles pour les titres de la section "hero" */
+.hero-text h1 {
+    /* Taille de police pour le titre principal */
+    font-size: var(--big-font);
+
+    /* Hauteur de ligne pour le titre principal */
+    line-height: 1.3;
+
+    /* Graisse de police pour le titre principal */
+    font-weight: 800;
+}
+
+/* Styles pour le sous-titre de la section "hero" */
+.hero-text h4 {
+    /* Marge du sous-titre */
+    margin: 5px 0 20px;
+
+    /* Couleur du sous-titre */
+    color: var(--main-color);
+
+    /* Transformation du texte en majuscules */
+    text-transform: uppercase;
+
+    /* Espacement des lettres du sous-titre */
+    letter-spacing: 10px;
+
+    /* Taille de police pour le sous-titre */
+    font-size: 22px;
+
+    /* Graisse de police pour le sous-titre */
+    font-weight: 400;
+}
+
+/* Styles pour le paragraphe de la section "hero" */
+.hero-text p {
+    /* Couleur du texte du paragraphe */
+    color: var(--other-color);
+
+    /* Taille de police pour le paragraphe */
+    font-size: var(--p-font);
+
+    /* Graisse de police pour le paragraphe */
+    font-weight: 500;
+
+    /* Hauteur de ligne pour le paragraphe */
+    line-height: 26px;
+
+    /* Largeur maximale du paragraphe */
+    max-width: 550px;
+
+    /* Marge inférieure du paragraphe */
+    margin-bottom: 4rem;
+}
+
+/* Styles pour les boîtes de contenu de la section "hero" */
+.box {
+    /* Couleur d'arrière-plan des boîtes */
+    background: var(--second-color);
+
+    /* Remplissage des boîtes */
+    padding: 25px 40px;
+
+    /* Coins arrondis des boîtes */
+    border-radius: 1rem;
+
+    /* Ombre de boîte */
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+    /* Transition pour les animations fluides */
+    transition: all ease .55s;
+
+    /* Curseur de souris */
+    cursor: pointer;
+}
+
+/* Styles pour les images des boîtes de contenu */
+.box img {
+    /* Taille maximale des images */
+    max-width: 100%;
+    height: auto;
+}
+
+.box h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.box h5 {
+    color: var(--main-color);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+/* Styles au survol des boîtes de contenu */
+.box:hover {
+    /* Animation de translation et de mise à l'échelle au survol */
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Styles pour la flèche vers le bas */
+.down-arrow {
+    /* Positionnement absolu en bas de la section "hero" */
+    position: absolute;
+    bottom: 3.5rem;
+    right: 9%;
+}
+
+/* Styles pour l'icône de la flèche vers le bas */
+.down-arrow i {
+    /* Remplissage de l'icône */
+    padding: 14px;
+
+    /* Couleur de l'icône */
+    color: var(--bg-color);
+
+    /* Couleur d'arrière-plan de l'icône */
+    background: var(--text-color);
+
+    /* Taille de l'icône */
+    font-size: 25px;
+
+    /* Coins arrondis de l'icône */
+    border-radius: 3rem;
+
+    /* Curseur de souris */
+    cursor: pointer;
+
+    /* Transition pour les animations fluides */
+    transition: all ease .55s;
+}
+
+/* Styles au survol de l'icône de la flèche vers le bas */
+.down-arrow i:hover {
+    /* Couleur d'arrière-plan de l'icône au survol */
+    background: var(--main-color);
+
+    /* Animation de translation vers le bas */
+    transform: translateY(5px);
+}
+
+/* Styles pour le mode sombre */
+body.color {
+    /* Remplacement des couleurs par défaut avec les couleurs du mode sombre */
+    --text-color: #fff;
+    --bg-color: #08162a;
+    --second-color: #2b3544;
+}
+
+/* Styles pour les médias query */
+
+/* Règles pour les écrans de largeur maximale de 1600px */
+@media (max-width: 1600px){
+    /* Réduction du rembourrage de l'en-tête */
+    header {
+        padding: 13px 3%;
+    }
+
+    /* Réduction du rembourrage horizontal des sections */
+    section {
+        padding: 0 5%;
+    }
+}
+
+/* Règles pour les écrans de largeur maximale de 1470px */
+@media (max-width: 1470px){
+    /* Réduction de la hauteur et de la largeur de l'image de la section "hero" */
+    .hero-img {
+        height: 700px;
+        width: 700px;
+    }
+}
+
+/* Règles pour les écrans de largeur maximale de 1400px */
+@media (max-width: 1400px){
+    /* Réduction des tailles de police pour le titre de la boîte */
+    :root {
+        --big-font: 4rem;
+        --p-font: 15px;
+    }
+
+    /* Réduction de la taille de police pour le titre de la boîte */
+    .box h3 {
+        font-size: 20px;
+        /* Marge inférieure réduite pour le titre de la boîte */
+        margin-bottom: 2px;
+    }
+
+    /* Réduction de la hauteur et de la largeur de l'image de la section "hero" */
+    .hero-img {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+/* Règles pour les écrans de largeur maximale de 1342px */
+@media (max-width: 1342px){
+    /* Réduction du rembourrage de l'en-tête et ajout d'une couleur d'arrière-plan */
+    header {
+        padding: 10px 3%;
+        background: var(--second-color);
+    }
+
+    /* Affichage de l'icône de menu */
+    #menu-icon {
+        display: initial;
+    }
+
+    /* Positionnement de la liste de navigation en haut */
+    .navlist {
+        position: absolute;
+        top: -700px;
+        left: 0;
+        right: 0;
+
+        /* Affichage en colonne pour les éléments de la liste */
+        display: flex;
+        flex-direction: column;
+
+        /* Couleur d'arrière-plan de la liste de navigation */
+        background: #2A2A2B;
+
+        /* Transition pour les animations fluides */
+        transition: all ease .55s;
+
+        /* Alignement du texte à gauche */
+        text-align: left;
+    }
+
+    /* Styles pour les liens de la liste de navigation en mode mobile */
+    .navlist a {
+        /* Affichage en bloc pour les liens de la liste */
+        display: block;
+
+        /* Taille de police pour les liens de la liste */
+        font-size: 23px;
+
+        /* Graisse de police pour les liens de la liste */
+        font-weight: 400;
+
+        /* Marge entre les liens de la liste */
+        margin: 0.8rem 1.8rem;
+
+        /* Couleur des liens de la liste en mode mobile */
+        color: var(--second-color);
+    }
+    /* Styles pour l'ouverture de la liste de navigation en mode mobile */
+    .navlist.open {
+        /* Positionnement de la liste de navigation en haut */
+        top: 100%;
+    }
+}
+
+/* Règles pour les écrans de largeur maximale de 1230px */
+@media (max-width: 1230px){
+    /* Réorganisation des éléments de la section "hero" en mode mobile */
+    .hero{
+        /* Affichage en une seule colonne */
+        grid-template-columns: 1fr;
+
+        /* Hauteur auto pour la section "hero" */
+        height: auto;
+    }
+
+    /* Réorganisation des éléments textuels de la section "hero" en mode mobile */
+    .hero-text {
+        /* Changement de l'ordre des éléments textuels */
+        order: 2;
+    }
+
+    /* Réduction du rembourrage vertical des sections en mode mobile */
+    section {
+        padding: 50px 5%;
+    }
+
+    /* Réorganisation de l'image de la section "hero" en mode mobile */
+    .hero-img {
+        /* Centrage horizontal de l'image */
+        margin: auto;
+
+        /* Hauteur et largeur auto pour l'image */
+        height: auto;
+        width: auto;
+    }
+
+    /* Réglages pour l'image de la section "hero" en mode mobile */
+    .hero-img img {
+        /* Largeur de l'image de 100% */
+        width: 100%;
+
+        /* Hauteur auto pour l'image */
+        height: auto;
+
+        /* Largeur maximale de l'image en mode mobile */
+        max-width: 650px;
+    }
+    /* Masquage de la flèche vers le bas en mode mobile */
+    .down-arrow {
+        display: none;
+    }
+}
+
+/* Règles pour les écrans de largeur maximale de 600px */
+@media (max-width: 600px){
+    /* Réorganisation des éléments de la section "hero" en mode mobile */
+    .hero-in {
+        /* Réorganisation des éléments en grille avec une largeur minimale de 190px */
+        grid-template-columns: repeat(auto-fit, minmax(190px, auto));
+
+        /* Espacement réduit entre les éléments de la grille en mode mobile */
+        gap: 18px;
+    }
+
+    /* Ajustement du remplissage des boîtes en mode mobile */
+    .box {
+        padding: 10px 30px;
+    }
+
+    /* Ajustement du remplissage du bouton "Acheter" en mode mobile */
+    .h-btn {
+        padding: 6px 14px;
+        margin-right: 8px;
+    }
+
+    /* Réduction des tailles de police pour les éléments en mode mobile */
+    :root {
+        --big-font: 3rem;
+        --p-font: 14px;
+    }
+
+    /* Réduction de la taille du logo en mode mobile */
+    .logo {
+        font-size: 32px;
+    }
+
+    /* Ajustement de la marge droite de l'icône de menu en mode mobile */
+    #menu-icon {
+        margin-right: 5px;
+    }
+}
+
+/* Styles pour la barre de défilement */
+
+/* Styles pour Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--other-color) #DFE9EB;
+}
+
+/* Styles pour Chrome, Edge et Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    /* Coins arrondis de la piste de défilement */
+    border-radius: 5px;
+
+    /* Couleur de fond de la piste de défilement */
+    background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-track:hover {
+    /* Couleur de fond de la piste de défilement au survol */
+    background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-track:active {
+    /* Couleur de fond de la piste de défilement en mode actif */
+    background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+    /* Coins arrondis du pouce de défilement */
+    border-radius: 5px;
+
+    /* Couleur de fond du pouce de défilement */
+    background-color: var(--other-color);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    /* Couleur de fond du pouce de défilement au survol */
+    background-color: var(--text-color);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    /* Couleur de fond du pouce de défilement en mode actif */
+    background-color: var(--text-color);
+}
